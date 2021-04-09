@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import Child from './Components/Test/Child'
 import reportWebVitals from './reportWebVitals';
+import AddItem from './Components/LocalStorage/AddItem';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <Child /> */}
+    <AddItem />
   </React.StrictMode>,
   document.getElementById('root')
 );
