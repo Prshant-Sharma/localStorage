@@ -11,7 +11,7 @@ function SearchItem() {
     }, [filteredItems, searchItem]);
 
     const handleOnChange = (e) => {
-        setSearchItem(e.target.value.toLowerCase());
+        setSearchItem(e.target.value);
         setFilteredItems(items.filter(user => user.name.toLowerCase().includes(searchItem.toLowerCase())));
         console.log(filteredItems);
     }
@@ -19,7 +19,7 @@ function SearchItem() {
     return (
         <div>
             <input type="text" value={searchItem} placeholder="Enter name to search.." onChange={handleOnChange}></input>
-            {filteredItems.map((items, index) => (<FilteredItems key={index} {...items}/>))}
+            {filteredItems.map((items, index) => <FilteredItems key={index} {...items}/>)}
         </div>
     )
 }
