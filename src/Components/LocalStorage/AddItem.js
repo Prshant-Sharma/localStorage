@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ItemList from './ItemList'
-// import SearchItem from './SearchItem'
+import SearchItem from './SearchItem'
 import '../../App.css'
 
 function AddItem() {
@@ -13,6 +13,10 @@ function AddItem() {
             let obj = {};
             obj['name'] = user.userName;
             obj['age'] = user.age;
+            if(obj['age'] === undefined) {
+                alert('Please enter age');
+                return;
+            }
             items.push(obj);
             localStorage.setItem('data', JSON.stringify(items));
         } 
@@ -24,7 +28,11 @@ function AddItem() {
             }
             let obj = {};
             obj['name'] = user.userName;
-            obj['age'] = user.age;
+            obj['age'] = user.age; 
+            if(obj['age'] === undefined) {
+                alert('Please enter age');
+                return;
+            }
             itemsData.push(obj);
             localStorage.setItem('data', JSON.stringify(itemsData));
         }
@@ -37,7 +45,7 @@ function AddItem() {
             <input style={{marginLeft: '5px'}} type="number" value={user.age} placeholder="Enter age" onChange={(e) => setUser({...user, age: e.target.value})}></input>
             <button style={{marginLeft: '10px'}} disabled={!user.userName} onClick={handleAdd}>Add item</button>
             <ItemList />
-            {/* <SearchItem /> */}
+            <SearchItem />
         </div>
     )
 }

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
-function ItemList() {
+function ItemList(props) {
+    const {name, age} = props;
+
     let [list, setList] = useState([]);
 
     useEffect(() => {
@@ -16,7 +18,7 @@ function ItemList() {
     return (
         <div>
             {list.map((item, index) => {
-                return(
+                return (
                     <div>
                         <li key={index}>{item.name} is {item.age} years old.
                             <button onClick={() => handleDelete(index)} style={{marginLeft: '10px'}}>Delete</button>
